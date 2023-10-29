@@ -1,37 +1,14 @@
 from turtle import Turtle, Screen
 
-tim = Turtle()
 screen = Screen()
+screen.setup(500, 400)
+user_bet = screen.textinput("Make your bet", prompt="Chose your turtle: ")
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+y_positions = [-70, -40, -18, 20, 50, 80]
 
-
-def move_forwards():
-    tim.forward(10)
-
-
-def move_backwards():
-    tim.backward(10)
-
-
-def turn_left():
-    new_heading = tim.heading() + 10
-    tim.setheading(new_heading)
-
-
-def turn_right():
-    new_heading = tim.heading() - 10
-    tim.setheading(new_heading)
-
-
-def clear():
-    tim.home()
-    tim.clear()
-
-
-screen.listen()
-screen.onkey(key="w", fun=move_forwards)
-screen.onkey(key="s", fun=move_backwards)
-screen.onkey(key="a", fun=turn_left)
-screen.onkey(key="d", fun=turn_right)
-screen.onkey(key="c", fun=clear)
-
+for turtle_index in range(0, 6):
+    tim = Turtle(shape="turtle")
+    tim.penup()
+    tim.color(colors[turtle_index])
+    tim.goto(x=-230, y=y_positions[turtle_index])
 screen.exitonclick()
